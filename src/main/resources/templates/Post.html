@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des utilisateurs</title>
+</head>
+<body>
+    <h1>Liste des utilisateurs</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Identifiant</th>
+                <th>Post</th>
+                <th>$$$$$$$$</th>
+                <th>$$$$$$$$</th>
+                <th>$$$$$$$$</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Utilisation de Thymeleaf pour itérer sur la liste des utilisateurs -->
+            <tr th:each="user : ${LesPosts}">
+                <td th:text="${Post.idpost}"></td>
+                <td th:text="${Post.idpost}"></td>
+                <td th:text="${Post.idpost}"></td>
+                <td th:text="${Post.idpost}"></td>
+                <td th:text="${Post.idpost}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
