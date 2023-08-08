@@ -18,7 +18,7 @@ public class PostController {
 	private PostService postService;
 	
 	
-	@GetMapping("")
+	@GetMapping("/Post")
 	public String Post(@RequestParam(name="name", required=false, defaultValue = "World")
 	String name, Model model) {
 		model.addAttribute("name", name);
@@ -29,6 +29,6 @@ public class PostController {
 	    long differenceEnJours = ChronoUnit.DAYS.between(dateCreation, aujourdhui);
 
 	        model.addAttribute("differenceEnJours", differenceEnJours);
-		return "index";
-	}
+		return "Post";
+	} 
 }
