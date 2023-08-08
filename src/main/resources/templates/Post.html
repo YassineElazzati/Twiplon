@@ -1,27 +1,48 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Post List</title>
+    <title>Page des Publications</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .post-info {
+            color: #777;
+            font-size: 14px;
+        }
+        .username {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to the Post Page</h1>
-    
-    <h2>List of Posts</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Content</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each= "post : ${LesPosts}">
-                <td th:text="${post.idpost}"></td>
-                <td th:text="${post.content}"></td>
-                <td th:text="${post.datecreation}"></td>
-            </tr>
-        </tbody>
-    </table>
+    <h1>Publications</h1>
+    <ul>
+        <li th:each="post : ${LesPosts}">
+            <div class="post-info">
+                <p class="username">Posté par : <span th:text="${post.user.username}"></span></p>
+                <p>ID de la Publication : <span th:text="${post.idpost}"></span></p>
+                <p>Contenu : <span th:text="${post.content}"></span></p>
+                <p>Date de Création : <span th:text="${post.datecreation}"></span></p>
+            </div>
+        </li>
+    </ul>
 </body>
 </html>

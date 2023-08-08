@@ -29,6 +29,6 @@ public class PostController {
 	    long differenceEnJours = ChronoUnit.DAYS.between(dateCreation, aujourdhui);
 
 	        model.addAttribute("differenceEnJours", differenceEnJours);
-		return "Post";
+		return "post";
 	} 
 }

@@ -3,39 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <title>Users Page</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #35424a;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .user-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #fff;
+            display: flex;
+            justify-content: space-between; /* Alignement à droite */
+            align-items: center; /* Centrage vertical */
+            position: relative;
+        }
+        .settings-btn {
+            background-color: #35424a;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <nav>
-        <div class="logo">
-   
-            <img src="logo.png" alt="Logo">
-        </div>
-        <div class="user-info">
-            <p><strong>[[${name}]]</strong></p>
-            <p th:if="${user != null}">[[${user.firstname}]] [[${user.lastname}]]</p>
-            <p th:if="${user != null}" class="user-creation-date">Créé le [[${user.datecreation}]]</p>
-        </div>
-    </nav>
-
-    <h1>Bienvenue sur la page des utilisateurs, [[${name}]] !</h1>
+    <header>
+        <h1>Welcome to the Users Page</h1>
+    </header>
     
-
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Username</th>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Date de création</th>
-        </tr>
-        <tr th:each="user : ${LesUsers}">
-            <td th:text="${user.id_user}"></td>
-            <td th:text="${user.username}"></td>
-            <td th:text="${user.firstname}"></td>
-            <td th:text="${user.lastname}"></td>
-            <td th:text="${user.datecreation}"></td>
-        </tr>
-    </table>
+    <div class="container">
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search for a user...">
+            <button class="settings-btn">Ok</button>
+        </div>
+        
+        <h2>List of Users:</h2>
+        <ul>
+            <li th:each="user : ${LesUsers}">
+                <div class="user-box">
+                    <div>
+                        <p><strong>ID:</strong> <span th:text="${user.id_user}"></span></p>
+                        <p><strong>First Name:</strong> <span th:text="${user.firstname}"></span></p>
+                        <p><strong>Last Name:</strong> <span th:text="${user.lastname}"></span></p>
+                        <p><strong>Date Creation:</strong> <span th:text="${user.datecreation}"></span></p>
+                    </div>
+                    <!-- Ajoutez le bouton Réglages ici -->
+                    <a th:href="@{'/settings/' + ${user.id_user}}" class="settings-btn">Réglages</a>
+                </div>
+            </li>
+        </ul>
+    </div>
 </body>
 </html>

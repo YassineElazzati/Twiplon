@@ -20,5 +20,4 @@ public class UsersController {
 		model.addAttribute("LesUsers", usersService.getUsers());
 		return "users";
 	}
-	
 }
