@@ -18,6 +18,6 @@ public class UsersController {
 	String name, Model model) {
 		model.addAttribute("name", name);
 		model.addAttribute("LesUsers", usersService.getUsers());
-		return "users";
+		return "index";
 	}
 }

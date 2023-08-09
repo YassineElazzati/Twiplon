@@ -2,35 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Page des Publications</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            color: #333;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-        }
-        .post-info {
-            color: #777;
-            font-size: 14px;
-        }
-        .username {
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" th:href="@{/css/post.css}" />
 </head>
 <body>
     <h1>Publications</h1>

@@ -1,25 +1,38 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Users Page</title>
+    <title>Page d'Accueil</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Username</th>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Date de création</th>
-        </tr>
-        <tr th:each="user : ${LesUsers}">
-            <td th:text="${user.id_user}"></td>
-            <td th:text="${user.username}"></td>
-            <td th:text="${user.firstname}"></td>
-            <td th:text="${user.lastname}"></td>
-            <td th:text="${user.datecreation}"></td>
-        </tr>
-    </table>
+    <header>
+        <img src="Images/logo-simplon.png" alt="Logo">
+        <nav>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Mon Profil</a></li>
+                <li><a href="#">Mes Paramètres</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Publications</h1>
+        <div class="posts">
+            <div th:each="post : ${LesPosts}" class="post">
+                <div class="post-info">
+                    <p class="username">Posté par : <span th:text="${post.user.username}"></span></p>
+                    <p>Date de Création : <span th:text="${post.datecreation}"></span></p>
+                </div>
+                <div class="post-content">
+                    <p th:text="${post.content}"></p>
+                </div>
+                <div class="post-actions">
+                    <a href="#" class="share-button">Partager</a>
+                    <button class="like-button">Like</button>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
