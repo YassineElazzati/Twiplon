@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.roadtocda.twiplon.service.LikeService;
 
+
 @RestController
 public class LikesController {
 
@@ -18,5 +19,6 @@ public class LikesController {
 	@PostMapping("/like")
 	public void Likes(@RequestBody Map<String, Long> requestBody) {
 		Long postId = requestBody.get("postId");
+		likeService.likeSave(4, postId.intValue());
 	}
 }

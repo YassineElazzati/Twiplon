@@ -3,7 +3,6 @@
 <head>
     <title>Page d'Accueil</title>
     <link rel="stylesheet" th:href="@{/css/style.css}" />
-    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <header>
@@ -29,10 +28,11 @@
                 </div>
                 <div class="post-actions">
                     <a href="#" class="share-button">Partager</a>
-                    <button class="like-button">Like</button>
+                    <button class="like-button" th:attr="data-idpost=${post.idpost}">Like</button>
                 </div>
             </div>
         </div>
     </main>
 </body>
+<script th:src="@{/script/script.js}"></script>
 </html>
